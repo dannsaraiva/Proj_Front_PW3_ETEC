@@ -18,14 +18,14 @@
 
                             <label for="nome_medicamento" style="font-weight: bold;">Nome do medicamento:</label>
                             <input class="form-control" type="text" name="nome_medicamento" id="nome_medicamento"
-                                placeholder="..."><br>
+                                placeholder="..." required><br>
 
                             <label for="descricao_medicamento" style="font-weight: bold;">Descrição do
                                 medicamento:</label>
                             <input class="form-control" type="text" name="descricao_medicamento"
-                                id="descricao_medicamento" placeholder="..."><br>
+                                id="descricao_medicamento" placeholder="..." required><br>
 
-                            <label for="validade_medicamento" style="font-weight: bold;">Validade do
+                            <!-- <label for="validade_medicamento" style="font-weight: bold;">Validade do
                                 medicamento:</label>
                             <input class="form-control" type="number" name="validade_medicamento"
                                 id="validade_medicamento birth-date" placeholder="00/00/0000"
@@ -33,13 +33,13 @@
 
                             <label for="horario_medicamento" style="font-weight: bold;">Horario do medicamento:</label>
                             <input class="form-control" type="number" name="horario_medicamento"
-                                id="horario_medicamento" placeholder="00:00"><br>
+                                id="horario_medicamento" placeholder="00:00"><br> -->
 
                             <label for="quant_medicamento" style="font-weight: bold;">Quantidade do medicamento:</label>
                             <input class="form-control" type="number" name="quant_medicamento" id="quant_medicamento"
-                                placeholder="..."><br>
+                                placeholder="..." required><br>
 
-                            <button class="btn btn-warning mt-2">Cadastre</button>
+                            <button class="btn btn-warning mt-2" onclick="sucesso()">Cadastre</button>
 
                         </form>
 
@@ -54,3 +54,9 @@
     <%- include('../partials/footer.ejs') %>
 
         </html>
+
+        <script>
+            function sucesso() {
+                // alert("Medicamento salvo !!");
+            }
+        </script>

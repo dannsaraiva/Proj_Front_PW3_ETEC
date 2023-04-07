@@ -1,0 +1,44 @@
+<%- include('../partials/header.ejs') %>
+
+    <body>
+
+        <div class="container">
+
+            <%- include('../partials/menu.ejs') %>
+
+                <div class="card">
+
+                    <div class="card-header">
+                        <h3 style="text-align: center;margin: 30px;">Editar medicamento</h3>
+                    </div>
+
+                    <div class="card-body">
+
+                        <form action="/editarMedicamento" method="post">
+
+                            <!-- <label for="nome_medicamento" style="font-weight: bold;">Nome do medicamento:</label>
+                            <input class="form-control" type="text" name="nome_medicamento" id="nome_medicamento"
+                                placeholder="..."><br> -->
+
+                            <label for="nome_medicamento"></label>
+                            <input class="form-control" type="text" name="nome_medicamento" id="nome_medicamento"
+                                value="<%= medicamento.data.nome_medicamento %>">
+
+                            <input type="hidden" name="id_medicamento" value="<%= medicamento.data.id_medicamento %>">
+
+
+                            <button class="btn btn-warning mt-2">Editar</button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+        </div>
+
+    </body>
+
+    <%- include('../partials/footer.ejs') %>
+
+        </html>

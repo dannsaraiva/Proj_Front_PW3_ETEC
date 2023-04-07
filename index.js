@@ -23,6 +23,9 @@ malit.get('/medicamento', (req, res) => {
     res.render('medicamento/cadastroMedicamento');
 });
 
+//Após cadastrar.
+
+
 //Listagem.
 malit.get('/listarMedicamento', (req, res) => {
 
@@ -34,6 +37,47 @@ malit.get('/listarMedicamento', (req, res) => {
             console.log(response.data);
             let medicamento = response.data;
             res.render('medicamento/listarMedicamento', { medicamento });
+        });
+});
+
+//Editar.
+malit.get('/listarMedicamento/:id_medicamento', (req, res) => {
+
+    let { id_medicamento } = req.params;
+
+    urlListarMedicamentoPK = `http://localhost:3333/listarMedicamentoPK/${id_medicamento}`;
+
+    axios.get(urlListarMedicamentoPK)
+        .then((response) => {
+            let medicamento = response.data;
+
+            res.render('medicamento/editarMedicamento.ejs', { medicamento });
+        });
+});
+
+malit.post('/editarMedicamento', (req, res) => {
+
+    let urlEditar = 'http://localhost:3333/atualizarMedicamento';
+
+    axios.put(urlEditar, req.body)
+        .then(() => {
+            res.redirect('/listarMedicamento');
+        });
+});
+
+// Excluir.
+malit.get('/excluirMedicamento/:id_medicamento', (req, res) => {
+
+    let { id_medicamento } = req.params;
+
+    let urlExcluirMedicamento = `http://localhost:3333/excluirMedicamento/${id_medicamento}`;
+
+    axios.delete(urlExcluirMedicamento)
+        .then(() => {
+            res.redirect('/listarMedicamento');
+
+        }).catch(() => {
+
         });
 });
 
